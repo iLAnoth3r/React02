@@ -1,18 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faFacebook,
-  faGithub,
-} from "@fortawesome/free-regular-svg-icons";
+const Imagenes = (
+  <div>
+    <a href="https://www.flaticon.com/free-icons/github" title="github icons">
+      Github icons created by Dave Gandy - Flaticon
+    </a>
+  </div>
+);
 
-const Iconos = () => {
-  return (
-    <div>
-      <FontAwesomeIcon icon={faFacebook} />
-      <FontAwesomeIcon icon={faGithub} />
-      <FontAwesomeIcon icon={faLinkedin} />
-    </div>
-  );
-};
-
-export default Iconos;
+export default Imagenes;

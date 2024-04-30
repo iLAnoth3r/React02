@@ -1,6 +1,9 @@
 import "./Formulario.css";
 import React from "react";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Imagenes from "../SocialButton/SocialButton";
 
 function Formulario() {
   const [name, setName] = useState("");
@@ -15,7 +18,6 @@ function Formulario() {
   const [error, setError] = useState(false);
 
   const validarDatos = (e) => {
-    console.log(e);
     e.preventDefault();
 
     if (clave != sclave) {
@@ -40,44 +42,51 @@ function Formulario() {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      {error ? <p>Contraseñas no coinciden</p> : null}
-      {errorMail ? <p>Email no válido</p> : null}
-      <input
-        placeholder="Ingresa tu nombre"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        name="nombre"
-      ></input>
-      <input
-        placeholder="Ingresa tu email"
-        value={mail}
-        onChange={(e) => setMail(e.target.value)}
-        name="email"
-      ></input>
-      <input
-        placeholder="Ingresa tu contraseña"
-        value={clave}
-        onChange={(e) => setClave(e.target.value)}
-        name="pass"
-      ></input>
-      <input
-        placeholder="Repite tu contraseña"
-        value={sclave}
-        onChange={(e) => setSclave(e.target.value)}
-        name="passConfirm"
-      ></input>
-      <button
-        onClick={(e) => {
-          validarDatos(e);
-          validar(e);
-        }}
-        type="submit"
-        className="btn btn-primary"
-      >
-        Enviar
-      </button>
-    </form>
+    <Card style={{ width: "18rem" }}>
+      <Card.Body className="body">
+        <Card.Title className="titulo">Crea una cuenta</Card.Title>
+
+        <form onSubmit={(e) => handleSubmit(e)}>
+          {error ? <p>Contraseñas no coinciden</p> : null}
+          {errorMail ? <p>Email no válido</p> : null}
+          <input
+            placeholder="Ingresa tu nombre"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            name="nombre"
+          ></input>
+          <input
+            placeholder="Ingresa tu email"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+            name="email"
+          ></input>
+          <input
+            placeholder="Ingresa tu contraseña"
+            value={clave}
+            onChange={(e) => setClave(e.target.value)}
+            name="pass"
+          ></input>
+          <input
+            placeholder="Repite tu contraseña"
+            value={sclave}
+            onChange={(e) => setSclave(e.target.value)}
+            name="passConfirm"
+          ></input>
+        </form>
+        <Button
+          className="boton"
+          variant="success"
+          onClick={(e) => {
+            validarDatos(e);
+            validar(e);
+          }}
+          type="submit"
+        >
+          Registrarse
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 
